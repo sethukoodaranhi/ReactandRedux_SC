@@ -5,9 +5,9 @@ import Products from '../components/Products'
 function Dashboard() {
   return (
     <>
-    <Header/>
+    <h1>Dashboard</h1>
     <Products/>
-    {/* <Cart/> */}
+  
     </>
   )
 }

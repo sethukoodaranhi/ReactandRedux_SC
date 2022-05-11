@@ -7,12 +7,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
+      <Header/>
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Dashboard />}>
-          <Route path="cart" element={<Cart />} />
-          <Route path="products" element={<Products />} />
-        </Route>
+      <Routes>              
+        <Route path="/" element={<Dashboard/>}/>
+        <Route path="products" element={<Products/>} />
+        <Route path="cart" element={<Cart />} />        
       </Routes>
     </BrowserRouter>
     </div>

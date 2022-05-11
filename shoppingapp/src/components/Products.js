@@ -6,6 +6,10 @@ import { Card, Button } from 'react-bootstrap'
 import {useCart} from 'react-use-cart'
 import { setCartItems, SetProducts } from '../redux/Actions/ActionCreators'
 import { useState } from 'react'
+import Header from './Header'
+import { Link } from 'react-router-dom'
+import Cart from './Cart'
+
 function Products() {
  
     const dispatch = useDispatch()
@@ -14,12 +18,18 @@ function Products() {
     // const cartData=useSelector((state)=>state.cartPrdct.products)
     // console.log("cart data.."(cartData))
     const fetchProducts = async () => {
-        const response = await axios.get('https://fakestoreapi.com/products')
-            .catch(err => {
-                console.log('err in api' + err)
-            })
-         console.log(response)
-        dispatch(SetProducts(response.data))
+        const response = await axios.get('https://fakestoreapi.com/products').then((res)=>{
+            if(res.status===200)
+            {
+                console.log("success...")
+                dispatch(SetProducts(res.data))
+            }
+            else if(res.status===408)
+            {
+                console.log("request timeout")
+            }
+        })
+         
     }
     useEffect(() => {
         fetchProducts()
@@ -39,6 +49,8 @@ function Products() {
     // console.log("....."+Cart)
     return (
         <div>
+           
+            <h4>Products...</h4>
             {
                 productsData.map((value, key) => {
                     return (
@@ -49,12 +61,13 @@ function Products() {
                                 <Card.Text>
                                     Rs.{value.price}
                                 </Card.Text>
-                                <Button variant="primary" onClick={()=>cartHandler(value)}>Add to cart</Button>
+                               <Link to='/cart' ><Button variant="primary" onClick={()=>cartHandler(value)}>Add to cart</Button></Link>
                             </Card.Body>
                         </Card>
                     )
                 })
             }
+          <hr/>
           
         </div>
 
