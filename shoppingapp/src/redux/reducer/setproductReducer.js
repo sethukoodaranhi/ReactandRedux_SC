@@ -33,7 +33,7 @@ export const DeleteitemReducer=(state=initialState,{type,payload})=>{
     switch (type) {
         case ActionTypes.DELETEITEM:
             return {...state,
-                cart:[...state.cart.delete(payload)]}             
+                cart: state.cart.filter((item, DltItm) => DltItm !== payload)}        
         default:
            return state
     }

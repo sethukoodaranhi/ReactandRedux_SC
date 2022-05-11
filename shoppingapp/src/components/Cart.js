@@ -25,7 +25,7 @@ function Cart() {
 
                 </Card.Text>
                 <Button variant="primary"className='me-5'>Buy</Button>
-                <Button variant="primary"onClick={()=>DeleteHandler(value)}>Delete</Button>
+                <Button variant="primary"onClick={()=>DeleteHandler(value.id)}>Delete</Button>
               </Card.Body>
             </Card>
           )
