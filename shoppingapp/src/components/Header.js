@@ -1,9 +1,9 @@
 import React from 'react'
 import {NavDropdown,Nav,Container,Navbar} from 'react-bootstrap'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import {useCart} from 'react-use-cart'
-function Header() {  
-    const{totalUniqueItems}=useCart();
+import { Link } from '@mui/material';
+
+function Header() {      
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -14,9 +14,9 @@ function Header() {
                        
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">Products</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                           <ShoppingCartOutlinedIcon/><sup>{totalUniqueItems}</sup>
+                        <Nav.Link href="/products">Products</Nav.Link>
+                        <Nav.Link eventKey={2} href="/cart">
+                          <Link to='/cart'><ShoppingCartOutlinedIcon/></Link> 
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

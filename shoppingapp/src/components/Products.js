@@ -7,18 +7,18 @@ import {useCart} from 'react-use-cart'
 import { setCartItems, SetProducts } from '../redux/Actions/ActionCreators'
 import { useState } from 'react'
 function Products() {
-    const [Cart, setCart] = useState([])
+ 
     const dispatch = useDispatch()
     const productsData = useSelector((state) => state.allProducts.products)
-    console.log("state data" + productsData)
-    // const cartData=useSelector((state)=>state.cartPrdct)
+    // console.log("state data" + productsData)
+    // const cartData=useSelector((state)=>state.cartPrdct.products)
     // console.log("cart data.."(cartData))
     const fetchProducts = async () => {
         const response = await axios.get('https://fakestoreapi.com/products')
             .catch(err => {
                 console.log('err in api' + err)
             })
-        console.log(response)
+         console.log(response)
         dispatch(SetProducts(response.data))
     }
     useEffect(() => {
@@ -31,9 +31,9 @@ function Products() {
 //       dispatch(setCartItems(cartArray))
 //    }
     const cartHandler=(value)=>{
-       console.log(value)
+    //    console.log(value)
     //    setCart(value)
-    dispatch(setCartItems(...value))
+    dispatch(setCartItems(value))
        
     }
     // console.log("....."+Cart)

@@ -1,6 +1,7 @@
 import { ActionTypes } from "../Actions/ActionTypes";
 const initialState={
-    products:[]
+    products:[],
+    cart:[]
 }
 export const setproductReducer=(state=initialState,{type,payload})=>{
     
@@ -13,11 +14,13 @@ export const setproductReducer=(state=initialState,{type,payload})=>{
 }
 
 
-export const setcartReducer=(state={},{type,payload})=>{
-   console.log('...data'+payload)
+export const setcartReducer=(state=initialState,{type,payload})=>{ 
+    console.log(payload)
     switch (type) {
         case ActionTypes.SETCARTITEMS:            
-            return {...state,...payload}  
+            return {...state,
+             cart:[...state.cart,payload]
+        }             
         default:
             return state
     }
