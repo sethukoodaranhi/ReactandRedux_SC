@@ -1,9 +1,16 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import { Card, Button } from 'react-bootstrap'
+import { DeleteItem } from '../redux/Actions/ActionCreators'
+
 function Cart() {
   const cartPrduct = useSelector((state) => state.cartPrdct.cart)
   console.table("cartproducts here.." + JSON.stringify(cartPrduct))
+  const dispatch=useDispatch()
+  const DeleteHandler=(value)=>{
+    console.log("deletingitem"+JSON.stringify(value))
+    dispatch(DeleteItem(value))
+  }
   return (
     <>
       <h1>cart..</h1>
@@ -17,7 +24,8 @@ function Cart() {
                 <Card.Text>
 
                 </Card.Text>
-                <Button variant="primary">Buy</Button>
+                <Button variant="primary"className='me-5'>Buy</Button>
+                <Button variant="primary"onClick={()=>DeleteHandler(value)}>Delete</Button>
               </Card.Body>
             </Card>
           )

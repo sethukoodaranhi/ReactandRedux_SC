@@ -15,8 +15,8 @@ function Header() {
                     </Nav>
                     <Nav>
                         <Nav.Link href="/products">Products</Nav.Link>
-                        <Nav.Link eventKey={2} href="/cart">
-                          <Link to='/cart'><ShoppingCartOutlinedIcon/></Link> 
+                        <Nav.Link eventKey={2} href="">
+                         <ShoppingCartOutlinedIcon/>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

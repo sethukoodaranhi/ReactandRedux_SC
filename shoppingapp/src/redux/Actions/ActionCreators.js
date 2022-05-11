@@ -13,3 +13,11 @@ export const setCartItems=(cartprduct)=>{
         payload:cartprduct
     }
 }
+export const DeleteItem=(deleteitm)=>{
+   
+    return{
+        type:ActionTypes.DELETEITEM,
+        payload:deleteitm
+    }
+    
+}

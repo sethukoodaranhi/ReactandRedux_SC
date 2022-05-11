@@ -1,7 +1,8 @@
 import { ActionTypes } from "../Actions/ActionTypes";
 const initialState={
     products:[],
-    cart:[]
+    cart:[],
+    DltItm:[]
 }
 export const setproductReducer=(state=initialState,{type,payload})=>{
     
@@ -23,5 +24,17 @@ export const setcartReducer=(state=initialState,{type,payload})=>{
         }             
         default:
             return state
+    }
+}
+
+export const DeleteitemReducer=(state=initialState,{type,payload})=>{
+    console.log(state)
+    console.log("Dpayload"+payload)
+    switch (type) {
+        case ActionTypes.DELETEITEM:
+            return {...state,
+                cart:[...state.cart.delete(payload)]}             
+        default:
+           return state
     }
 }

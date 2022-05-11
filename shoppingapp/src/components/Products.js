@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Card, Button } from 'react-bootstrap'
 import {useCart} from 'react-use-cart'
 import { setCartItems, SetProducts } from '../redux/Actions/ActionCreators'
-import { useState } from 'react'
-import Header from './Header'
 import { Link } from 'react-router-dom'
 import Cart from './Cart'
 
