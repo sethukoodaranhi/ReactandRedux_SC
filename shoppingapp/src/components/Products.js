@@ -19,12 +19,12 @@ function Products() {
         const response = await axios.get('https://fakestoreapi.com/products').then((res)=>{
             if(res.status===200)
             {
-                console.log("success...")
+                // console.log("success...")
                 dispatch(SetProducts(res.data))
             }
             else if(res.status===408)
             {
-                console.log("request timeout")
+                // console.log("request timeout")
             }
         })
          
@@ -38,11 +38,11 @@ function Products() {
 //       cartArray.push(...productsData)
 //       dispatch(setCartItems(cartArray))
 //    }
-    const cartHandler=(value)=>{
-    //    console.log(value)
-    //    setCart(value)
-    dispatch(setCartItems(value))
-       
+    function cartHandler(value,id='') {
+        //    console.log("valueeandkey"+value,key)
+        //    setCart(value)
+        dispatch(setCartItems(value,''))
+
     }
     // console.log("....."+Cart)
     return (
@@ -59,7 +59,7 @@ function Products() {
                                 <Card.Text>
                                     Rs.{value.price}
                                 </Card.Text>
-                               <Link to='/cart' ><Button variant="primary" onClick={()=>cartHandler(value)}>Add to cart</Button></Link>
+                               <Link to='/cart' ><Button variant="primary" onClick={()=>cartHandler(value,'')}>Add to cart</Button></Link>
                             </Card.Body>
                         </Card>
                     )

@@ -1,4 +1,5 @@
 import { ActionTypes } from "./ActionTypes"
+
 export const SetProducts=(products)=>{
     return{
         type:ActionTypes.SETPRODUCTS,
@@ -11,13 +12,19 @@ export const setCartItems=(cartprduct)=>{
     return{
         type:ActionTypes.SETCARTITEMS,
         payload:cartprduct
+    
     }
 }
-export const DeleteItem=(deleteitm)=>{
-   
+export const DeleteItem=(value,index)=>{  
+    // console.log('index'+index)
+    // console.log('value',value)
     return{
         type:ActionTypes.DELETEITEM,
-        payload:deleteitm
+        payload:{
+            index:index,
+            value:value
+        }
+       
     }
     
 }
