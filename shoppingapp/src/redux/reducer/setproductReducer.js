@@ -25,18 +25,19 @@ export const setcartReducer = (state = initialState, { type, payload }) => {
                 cart: [...state.cart, payload]
             }
         case ActionTypes.DELETEITEM:
-            let data = state.cart.filter((data)=>data.id!==payload.value.id) 
+            // let data = state.cart.filter((data)=>data.id!==payload.value.id) 
             // console.log("dataaaa"+JSON.stringify(data))   
             // console.log('.....'+JSON.stringify(state.cart))   
             // console.log('PAYLOAD',payload.value.id)
             // console.log('index'+payload.index)
-            // let rslt=state.cart.splice(payload.index,1)
+                let rslt=state.cart.splice(payload.index,1)
             // console.log("rslttttt"+JSON.stringify(rslt))
             // const rslt=state.cart.splice(payload.index,payload.index+1)
+            
             // console.log("...."+JSON.stringify(rslt))
                 return{
                     ...state,
-                     cart:data
+                     cart:[...state.cart]
                 }
         default:
             return state
