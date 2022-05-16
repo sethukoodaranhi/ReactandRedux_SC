@@ -21,14 +21,16 @@ function Products() {
             {
                 // console.log("success...")
                 dispatch(SetProducts(res.data))
+               localStorage.setItem('dataaas',res.data)
             }
             else if(res.status===408)
             {
                 // console.log("request timeout")
             }
         })
-         
+      
     }
+    
     useEffect(() => {
         fetchProducts()
     }, [])
@@ -52,7 +54,7 @@ function Products() {
             {
                 productsData.map((value, key) => {
                     return (
-                        <Card style={{ width: '16em', height: '25em', display: 'inline-flex', margin: '1em' }} key={key}>
+                       <Link to={`/product/${value.id}`}> <Card style={{ width: '16em', height: '25em', display: 'inline-flex', margin: '1em' }} key={key}>
                             <Card.Img variant="top" src={value.image} style={{ height: '200px', width: '200px' }} />
                             <Card.Body>
                                 <Card.Title>{value.title}</Card.Title>
@@ -61,7 +63,7 @@ function Products() {
                                 </Card.Text>
                                <Link to='/cart' ><Button variant="primary" onClick={()=>cartHandler(value,'')}>Add to cart</Button></Link>
                             </Card.Body>
-                        </Card>
+                        </Card></Link>
                     )
                 })
             }

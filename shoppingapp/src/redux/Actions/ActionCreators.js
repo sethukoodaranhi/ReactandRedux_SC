@@ -28,3 +28,9 @@ export const DeleteItem=(value,index)=>{
     }
     
 }
+export const SelectedProduct=(product)=>{
+    return{
+        type:ActionTypes.SELECTEDPRODUCT,
+        payload:product
+    }
+}

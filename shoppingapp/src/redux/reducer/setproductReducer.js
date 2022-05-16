@@ -61,3 +61,16 @@ export const setcartReducer = (state = initialState, { type, payload }) => {
 //             return state
 //     }
 // }
+
+export const SelectedProductReducer=(state={},{type,payload})=>{
+    switch (type) {
+        case ActionTypes.SELECTEDPRODUCT:
+            return{
+                ...state,
+            }
+    
+        default:
+            return state;
+    }
+
+}
